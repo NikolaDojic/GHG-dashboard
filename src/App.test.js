@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import App, { DESCRIPTION } from "./App";
+import { render } from "@testing-library/react";
+import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 describe("App component", () => {
@@ -18,11 +18,6 @@ describe("App component", () => {
     const { container } = render(<MockApp />);
     const footerEl = container.querySelector("footer");
     expect(footerEl).toBeInTheDocument();
-  });
-  it("description renders", () => {
-    render(<MockApp />);
-    const articleEl = screen.getByText(new RegExp(DESCRIPTION, "i"));
-    expect(articleEl).toBeInTheDocument();
   });
   it("main renders", () => {
     const { container } = render(<MockApp />);

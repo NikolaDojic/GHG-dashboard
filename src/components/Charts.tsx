@@ -14,7 +14,6 @@ const ChartsWrapper = styled(Flex)`
 `;
 
 const Charts = ({ data, interval }: TProps) => {
-  console.log(data);
   return (
     <ChartsWrapper>
       {data.map(({ data, isFetching, error }, index) => {

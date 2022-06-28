@@ -7,7 +7,7 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
 
-const container = document.getElementById("root");
+const container = document.getElementById("root") as Element;
 const root = createRoot(container);
 root.render(
   <React.StrictMode>

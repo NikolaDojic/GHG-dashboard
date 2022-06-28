@@ -1,4 +1,4 @@
-import { render, click, fireEvent } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import ProductsSelect from "./ProductsSelect";
 
 describe("ProductsSelect test", () => {
@@ -52,10 +52,11 @@ describe("ProductsSelect test", () => {
     expect(inputMethane.checked).toBe(false);
     expect(inputNitro.checked).toBe(true);
   });
-  it("should toggle selected on click", async () => {
+
+  it("should toggle selected on click", () => {
     const { container } = render(<ProductsSelect {...state} />);
     const inputCarbon = container.querySelector('input[name="carbonmonoxide"]');
-    await fireEvent.click(inputCarbon);
+    fireEvent.click(inputCarbon);
     expect(state.selectedProducts.carbonmonoxide).toBe(false);
   });
 });

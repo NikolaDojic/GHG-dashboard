@@ -21,7 +21,12 @@ describe("App component", () => {
   });
   it("description renders", () => {
     render(<MockApp />);
-    const articleEl = screen.getByText(DESCRIPTION, { exact: false });
+    const articleEl = screen.getByText(new RegExp(DESCRIPTION, "i"));
     expect(articleEl).toBeInTheDocument();
+  });
+  it("main renders", () => {
+    const { container } = render(<MockApp />);
+    const mainEl = container.querySelector("main");
+    expect(mainEl).toBeInTheDocument();
   });
 });

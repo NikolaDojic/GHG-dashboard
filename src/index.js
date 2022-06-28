@@ -3,7 +3,9 @@ import { createRoot } from "react-dom/client";
 import GlobalStyle from "./styles/global";
 import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { refetchOnWindowFocus: false } },
+});
 
 const container = document.getElementById("root");
 const root = createRoot(container);

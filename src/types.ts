@@ -1,10 +1,3 @@
-export type TFetchHook<T, R> = (props: T) => TFetchHookReturnValue<R>;
-export type TFetchHookReturnValue<T> = {
-  isLoading: boolean;
-  data: T | null;
-  error: object | null;
-};
-
 export type TDataStats = {
   time: {
     //TODO iso string should have its own type, but for the sake of simplicity

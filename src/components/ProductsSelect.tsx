@@ -28,6 +28,10 @@ const Tooltip = styled.div`
 
 const CheckboxWrapper = styled.div`
   position: relative;
+  & label,
+  & input {
+    cursor: pointer;
+  }
   &:hover {
     & div {
       visibility: visible;
@@ -57,8 +61,8 @@ const ProductsSelect = ({
             type="checkbox"
             checked={selectedProducts[product.name]}
             onChange={() => onChange(product.name)}
-          />{" "}
-          <label htmlFor={product.name}>{product.name}</label>
+          />
+          <label htmlFor={product.name}> {product.name}</label>
           <Tooltip>{product.description}</Tooltip>
         </CheckboxWrapper>
       ))}

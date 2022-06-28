@@ -14,20 +14,23 @@ const ChartsWrapper = styled(Flex)`
 `;
 
 const Charts = ({ data, interval }: TProps) => {
+  console.log(data);
   return (
     <ChartsWrapper>
-      {data.map(({ data, isFetching, error }) => {
-        if (!data?.data) {
-          return null;
-        }
+      {data.map(({ data, isFetching, error }, index) => {
         return (
-          <RequestHandler isLoading={isFetching} errorMessage={error?.message}>
-            <Chart
-              key={data.product}
-              data={apiStatsToChartData(data.data)}
-              interval={interval}
-              product={data.product}
-            />
+          <RequestHandler
+            key={data?.product || index}
+            isLoading={isFetching}
+            errorMessage={error?.message}
+          >
+            {!data?.data ? null : (
+              <Chart
+                data={apiStatsToChartData(data?.data)}
+                interval={interval}
+                product={data?.product}
+              />
+            )}
           </RequestHandler>
         );
       })}
